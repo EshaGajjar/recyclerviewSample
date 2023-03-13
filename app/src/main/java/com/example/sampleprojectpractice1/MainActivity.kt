@@ -1,9 +1,11 @@
 package com.example.sampleprojectpractice1
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,11 +23,12 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
 
         val itemList: ArrayList<ModelClass> = ArrayList()
-        itemList.add(ModelClass("Android Developer Things", R.drawable.imglogo))
-        itemList.add(ModelClass("Android Studio", R.drawable.ic_android_studio))
-        itemList.add(ModelClass("Visual Studio Code", R.drawable.ic_vscode))
-        itemList.add(ModelClass("GitHub", R.drawable.ic_github))
-        itemList.add(ModelClass("Android Studio Duplicate", R.drawable.ic_android_studio))
+        itemList.add(ModelClass("Alan Smith","10th","Maths"))
+        itemList.add(ModelClass("Bon Jones","11th","Science"))
+        itemList.add(ModelClass("Carry Chan","12th","Gujarati"))
+        itemList.add(ModelClass("Eva Lee","9th","Science"))
+        itemList.add(ModelClass("Fanny Roberts","10th","English"))
+        itemList.add(ModelClass("Gery Brown","10th","Maths"))
 
         val adapter = RecyclerViewAdapter(itemList)
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

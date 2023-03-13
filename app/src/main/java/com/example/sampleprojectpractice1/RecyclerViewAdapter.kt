@@ -1,5 +1,6 @@
 package com.example.sampleprojectpractice1
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,16 @@ class RecyclerViewAdapter(val itemList : ArrayList<ModelClass>) : RecyclerView.A
         val model: ModelClass = itemList[position]
 
         holder.name.text = model.name
-        holder.image.setImageResource(model.image)
+        holder.subject.text = model.subject
+        holder.standard.text = model.std
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(holder.itemView.context, DetailedActivity::class.java)
+            intent.putExtra("name", model.name)
+            intent.putExtra("subject", model.subject)
+            intent.putExtra("std", model.std)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -28,11 +38,14 @@ class RecyclerViewAdapter(val itemList : ArrayList<ModelClass>) : RecyclerView.A
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name: TextView
-        val image: ImageView
+        val standard: TextView
+        val subject: TextView
 
         init {
             name = itemView.findViewById(R.id.name)
-            image = itemView.findViewById(R.id.image)
+            standard = itemView.findViewById(R.id.standard)
+            subject = itemView.findViewById(R.id.subject)
         }
     }
+
 }
